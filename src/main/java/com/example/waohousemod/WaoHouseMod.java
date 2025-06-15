@@ -155,10 +155,18 @@ public class WaoHouseMod {
             player.getServer().getPlayerList().broadcastSystemMessage(
                 Component.literal("Hola este es mi primer mod"), false);
 
-            var scoreboard = player.getServer().getScoreboard();
+            var server = player.getServer();
+            var scoreboard = server.getScoreboard();
             Objective objective = scoreboard.getObjective("wao_deaths");
-            if (objective != null)
+            if (objective != null) {
+                // Ensure every online player has an entry in the scoreboard so they
+                // appear even if they have 0 deaths.
+                for (ServerPlayer online : server.getPlayerList().getPlayers()) {
+                    scoreboard.getOrCreatePlayerScore(online, objective);
+                }
+
                 scoreboard.setDisplayObjective(DisplaySlot.SIDEBAR, objective);
+            }
         }
     }
 
