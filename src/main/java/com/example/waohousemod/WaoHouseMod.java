@@ -30,7 +30,12 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.slf4j.Logger;
 import net.minecraft.network.chat.Component;
+import net.minecraft.ChatFormatting;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.scores.DisplaySlot;
+import net.minecraft.world.scores.Objective;
+import net.minecraft.world.scores.criteria.ObjectiveCriteria;
+import net.minecraft.network.chat.numbers.BlankFormat;
 import com.example.waohousemod.HomeCommands;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -124,8 +129,19 @@ public class WaoHouseMod {
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
-        // Do something when the server starts
         LOGGER.info("HELLO from server starting");
+
+        var server = event.getServer();
+        var scoreboard = server.getScoreboard();
+        Objective objective = scoreboard.getObjective("wao_deaths");
+        if (objective == null) {
+            objective = scoreboard.addObjective("wao_deaths", ObjectiveCriteria.DEATH_COUNT,
+                    Component.literal("Muertes").withStyle(ChatFormatting.RED),
+                    ObjectiveCriteria.RenderType.INTEGER, false, BlankFormat.INSTANCE);
+        } else {
+            objective.setDisplayName(Component.literal("Muertes").withStyle(ChatFormatting.RED));
+        }
+        scoreboard.setDisplayObjective(DisplaySlot.SIDEBAR, objective);
     }
 
     @SubscribeEvent
@@ -138,6 +154,11 @@ public class WaoHouseMod {
         if (event.getEntity() instanceof ServerPlayer player) {
             player.getServer().getPlayerList().broadcastSystemMessage(
                 Component.literal("Hola este es mi primer mod"), false);
+
+            var scoreboard = player.getServer().getScoreboard();
+            Objective objective = scoreboard.getObjective("wao_deaths");
+            if (objective != null)
+                scoreboard.setDisplayObjective(DisplaySlot.SIDEBAR, objective);
         }
     }
 
