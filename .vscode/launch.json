@@ -8,7 +8,7 @@
       "mainClass": "net.minecraftforge.bootstrap.ForgeBootstrap",
       "projectName": "Minecraft-Mod",
       "cwd": "${workspaceFolder}\\run",
-      "vmArgs": "-Dforge.logging.console.level\u003ddebug -Dforge.enabledGameTestNamespaces\u003dexamplemod -Dforge.enableGameTest\u003dtrue -Djava.net.preferIPv6Addresses\u003dsystem -XX:HeapDumpPath\u003dMojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump",
+      "vmArgs": "-Dforge.logging.console.level\u003ddebug -Dforge.enabledGameTestNamespaces\u003dwaohousemod -Dforge.enableGameTest\u003dtrue -Djava.net.preferIPv6Addresses\u003dsystem -XX:HeapDumpPath\u003dMojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump",
       "args": "--launchTarget forge_userdev_client --version MOD_DEV --assetIndex 24 --assetsDir C:\\Users\\luigi\\.gradle\\caches\\forge_gradle\\assets --gameDir .",
       "env": {
         "MOD_CLASSES": "${workspaceFolder}\\build\\sourcesSets\\main",
@@ -24,7 +24,7 @@
       "projectName": "Minecraft-Mod",
       "cwd": "${workspaceFolder}\\run-data",
       "vmArgs": "-Dforge.logging.console.level\u003ddebug -Djava.net.preferIPv6Addresses\u003dsystem",
-      "args": "--launchTarget forge_userdev_data --assetIndex 24 --assetsDir C:\\Users\\luigi\\.gradle\\caches\\forge_gradle\\assets --gameDir . --mod examplemod --all --output C:\\gitMods\\Minecraft-Mod\\src\\generated\\resources --existing C:\\gitMods\\Minecraft-Mod\\src\\main\\resources",
+      "args": "--launchTarget forge_userdev_data --assetIndex 24 --assetsDir C:\\Users\\luigi\\.gradle\\caches\\forge_gradle\\assets --gameDir . --mod waohousemod --all --output C:\\gitMods\\Minecraft-Mod\\src\\generated\\resources --existing C:\\gitMods\\Minecraft-Mod\\src\\main\\resources",
       "env": {
         "MOD_CLASSES": "${workspaceFolder}\\build\\sourcesSets\\main",
         "MCP_MAPPINGS": "official_1.21.5"
@@ -38,7 +38,7 @@
       "mainClass": "net.minecraftforge.bootstrap.ForgeBootstrap",
       "projectName": "Minecraft-Mod",
       "cwd": "${workspaceFolder}\\run",
-      "vmArgs": "-Dforge.logging.console.level\u003ddebug -Dforge.enabledGameTestNamespaces\u003dexamplemod -Djava.net.preferIPv6Addresses\u003dsystem",
+      "vmArgs": "-Dforge.logging.console.level\u003ddebug -Dforge.enabledGameTestNamespaces\u003dwaohousemod -Djava.net.preferIPv6Addresses\u003dsystem",
       "args": "--launchTarget forge_userdev_server_gametest --gameDir .",
       "env": {
         "MOD_CLASSES": "${workspaceFolder}\\build\\sourcesSets\\main",
@@ -53,7 +53,7 @@
       "mainClass": "net.minecraftforge.bootstrap.ForgeBootstrap",
       "projectName": "Minecraft-Mod",
       "cwd": "${workspaceFolder}\\run",
-      "vmArgs": "-Dforge.logging.console.level\u003ddebug -Dforge.enabledGameTestNamespaces\u003dexamplemod -Dforge.enableGameTest\u003dtrue -Djava.net.preferIPv6Addresses\u003dsystem",
+      "vmArgs": "-Dforge.logging.console.level\u003ddebug -Dforge.enabledGameTestNamespaces\u003dwaohousemod -Dforge.enableGameTest\u003dtrue -Djava.net.preferIPv6Addresses\u003dsystem",
       "args": "--launchTarget forge_userdev_server --gameDir . --nogui",
       "env": {
         "MOD_CLASSES": "${workspaceFolder}\\build\\sourcesSets\\main",
