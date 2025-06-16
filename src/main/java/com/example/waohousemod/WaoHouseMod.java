@@ -36,7 +36,8 @@ import net.minecraft.world.scores.DisplaySlot;
 import net.minecraft.world.scores.Objective;
 import net.minecraft.world.scores.ScoreAccess;
 import net.minecraft.world.scores.criteria.ObjectiveCriteria;
-import net.minecraft.network.chat.numbers.BlankFormat;
+import net.minecraft.network.chat.Style;
+import net.minecraft.network.chat.numbers.StyledFormat;
 import com.example.waohousemod.HomeCommands;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -138,7 +139,7 @@ public class WaoHouseMod {
         if (objective == null) {
             objective = scoreboard.addObjective("wao_deaths", ObjectiveCriteria.DEATH_COUNT,
                     Component.literal("Muertes").withStyle(ChatFormatting.RED),
-                    ObjectiveCriteria.RenderType.INTEGER, false, BlankFormat.INSTANCE);
+                    ObjectiveCriteria.RenderType.INTEGER, false, new StyledFormat(Style.EMPTY));
         } else {
             objective.setDisplayName(Component.literal("Muertes").withStyle(ChatFormatting.RED));
         }
