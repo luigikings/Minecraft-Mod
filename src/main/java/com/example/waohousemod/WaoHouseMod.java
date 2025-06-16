@@ -34,6 +34,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.scores.DisplaySlot;
 import net.minecraft.world.scores.Objective;
+import net.minecraft.world.scores.ScoreAccess;
 import net.minecraft.world.scores.criteria.ObjectiveCriteria;
 import net.minecraft.network.chat.numbers.BlankFormat;
 import com.example.waohousemod.HomeCommands;
@@ -162,7 +163,9 @@ public class WaoHouseMod {
                 // Ensure every online player has an entry in the scoreboard so they
                 // appear even if they have 0 deaths.
                 for (ServerPlayer online : server.getPlayerList().getPlayers()) {
-                    scoreboard.getOrCreatePlayerScore(online, objective);
+                    ScoreAccess score = scoreboard.getOrCreatePlayerScore(online, objective);
+                    // Trigger an update so clients receive the current score value
+                    score.set(score.get());
                 }
 
                 scoreboard.setDisplayObjective(DisplaySlot.SIDEBAR, objective);
